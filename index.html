@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YakuWasi - Consultores Ambientales</title>
+    <meta name="description" content="YakuWasi Consultores Ambientales ofrece soluciones integrales en gestión ambiental y recursos hídricos, adaptadas a las necesidades específicas de cada cliente y sector.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/Logo_WakuWasi.png" type="image/png">
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="water-drop"></div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#inicio" class="flex items-center space-x-2">
+                    <img src="images/Logo_WakuWasi.png" alt="YakuWasi Logo" class="h-12">
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">YAKU WASI</h1>
+                        <p class="text-xs text-gray-600">Consultores Ambientales</p>
+                    </div>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Inicio</a>
+                    <a href="#nosotros" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Nosotros</a>
+                    <a href="#servicios" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Servicios</a>
+                    <a href="#equipo" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Equipo</a>
+                    <a href="#contacto" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Contacto</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="mobile-menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#equipo">Equipo</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <canvas id="water-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <div class="hero-content">
+            <div class="logo-hero">
+                <img src="images/Logo_WakuWasi.png" alt="YakuWasi Logo" class="w-48 h-48 mx-auto mb-6" style="filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));">
+                <h1 class="company-name">YAKU WASI</h1>
+                <h2 class="company-subtitle">Consultores Ambientales</h2>
+            </div>
+            
+            <p class="hero-tagline">"Protegiendo el agua, preservando el futuro"</p>
+            
+            <div class="cta-buttons">
+                <a href="#contacto" class="cta-btn cta-primary">
+                    <i class="fas fa-phone mr-2"></i>Consulta Gratuita
+                </a>
+                <a href="#servicios" class="cta-btn cta-secondary">
+                    <i class="fas fa-leaf mr-2"></i>Nuestros Servicios
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <a href="#nosotros" class="text-white">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="section-padding about-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title" data-aos="fade-up">Sobre Nosotros</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Somos un equipo de profesionales comprometidos con el desarrollo sostenible y la protección del medio ambiente, especializados en soluciones para la gestión y conservación del agua.
+            </p>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8" data-aos="fade-right" data-aos-delay="200">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4" style="color: var(--accent-green);">
+                            <i class="fas fa-bullseye mr-3"></i>Misión
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            En YakuWasi Consultores Ambientales, nuestra misión es proporcionar soluciones innovadoras y sostenibles en gestión ambiental y calidad del agua. Nos comprometemos a desarrollar estrategias personalizadas que equilibren las necesidades de desarrollo con la protección del medio ambiente, contribuyendo activamente a la preservación de los recursos hídricos y ecosistemas para las generaciones futuras.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4" style="color: var(--primary-blue);">
+                            <i class="fas fa-eye mr-3"></i>Visión
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Aspiramos a ser líderes reconocidos en consultoría ambiental en Latinoamérica, destacándonos por nuestra excelencia técnica, innovación y compromiso con la sostenibilidad. Buscamos ser catalizadores del cambio hacia prácticas ambientalmente responsables, integrando conocimiento científico avanzado con soluciones prácticas que promuevan el desarrollo sostenible y la protección de los recursos hídricos.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-left" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-6" style="color: var(--primary-gold);">
+                        <i class="fas fa-heart mr-3"></i>Nuestros Valores
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start value-card">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 value-icon">
+                                <i class="fas fa-leaf text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Sostenibilidad</h4>
+                                <p class="text-gray-600">Comprometidos con soluciones que respetan y preservan los recursos naturales</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start value-card">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 value-icon">
+                                <i class="fas fa-lightbulb text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Innovación</h4>
+                                <p class="text-gray-600">Buscamos constantemente nuevas tecnologías y métodos para resolver desafíos ambientales</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start value-card">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 value-icon">
+                                <i class="fas fa-handshake text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Integridad</h4>
+                                <p class="text-gray-600">Actuamos con transparencia, ética y responsabilidad en todos nuestros proyectos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start value-card">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 value-icon">
+                                <i class="fas fa-users text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Colaboración</h4>
+                                <p class="text-gray-600">Trabajamos en conjunto con clientes y comunidades para lograr objetivos comunes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Ofrecemos soluciones integrales en gestión ambiental y recursos hídricos, adaptadas a las necesidades específicas de cada cliente y sector.
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Gestión Ambiental</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Realizamos estudios de impacto ambiental, auditorías y planes de manejo ambiental adaptados a las necesidades específicas de cada proyecto y cumpliendo con la normativa vigente.
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-bacteria"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Biorremediación</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Empleamos técnicas avanzadas de biorremediación para restaurar ecosistemas contaminados, utilizando microorganismos y plantas para degradar contaminantes de manera sostenible.
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Sistemas de Información Geográfica</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Desarrollamos soluciones SIG para análisis espacial, mapeo de recursos naturales y modelado ambiental que facilitan la toma de decisiones basadas en datos geográficos.
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Capacitaciones</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Ofrecemos programas de formación especializados en gestión ambiental, calidad del agua y cumplimiento normativo, diseñados para profesionales y organizaciones.
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Calidad del Agua</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Realizamos monitoreo, análisis y evaluación de la calidad del agua en diversos entornos, garantizando el cumplimiento de estándares nacionales e internacionales.
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Tratamiento del Agua</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Diseñamos e implementamos sistemas de tratamiento de agua a medida, incorporando tecnologías innovadoras y sostenibles para diversos sectores industriales y comunitarios.
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Asesorías Académicas</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Brindamos apoyo especializado en actividades académicas, desarrollo de tesis y cursos relacionados con temas ambientales, gestión del agua y sostenibilidad para estudiantes e investigadores.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section id="equipo" class="section-padding team-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title" data-aos="fade-up">Nuestro Equipo Consultor</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Contamos con un equipo multidisciplinario de profesionales altamente calificados y comprometidos con la excelencia.
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Kevin Castro -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-avatar">
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Kevin Castro.png" 
+                             alt="Ing. Kevin Castro">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ing. Kevin Castro</h3>
+                    <p class="font-medium mb-3" style="color: var(--primary-gold);">Director</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Hidrologo con experiencia en SIG aplicados a la planificación territorial y análisis ambiental. Especialista en gestión de proyectos ambientales e hidrológicos, con enfoque en sostenibilidad, desarrollo local y resiliencia climática. Ha liderado estudios en cuencas hidrográficas y soluciones basadas en la naturaleza.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kevin-castro-997a8333a/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:castro.1997.3@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Arnold Hernández -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-avatar">
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Arnoldd Hernandez.png" 
+                             alt="Ing. Arnold Hernández">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ing. Arnold Hernández</h3>
+                    <p class="font-medium mb-3" style="color: var(--primary-gold);">Sub Director</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Biotnológo con experiencia en bioinformática y modelado de sistemas biológicos, biorremediación, microbiología e I+D. Su enfoque integra herramientas computacionales y biotecnológicas para el desarrollo de soluciones ambientales innovadoras, especialmente en el tratamiento de aguas y restauración ecológica.
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arnoldd-hernandez-b32863215/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:rodrigohurtado190@outlook.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Tanya Camalle -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-avatar">
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Tanya Camalle.png" 
+                             alt="Ing. Tanya Camalle">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ing. Tanya Camalle</h3>
+                    <p class="font-medium mb-3" style="color: var(--primary-gold);">Analista de Proyectos</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Ingeniera en Agroecología con experiencia en el diseño y gestión de sistemas agroecológicos sostenibles. Especialista en manejo ecológico de plagas, fertilización sostenible y nutrición del suelo. También se desempeña en asesoría técnica, capacitación y formulación de proyectos productivos y ambientales.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/tanya-camalle-valverde-7545ab308/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:tanyavl183@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Milena Ladines -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="team-avatar">
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Milena Ladines.png" 
+                             alt="Ing. Milena Ladines">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ing. Milena Ladines</h3>
+                    <p class="font-medium mb-3" style="color: var(--primary-gold);">Gerente de Proyectos</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Ingeniera en Agroecología con experiencia en investigación, docencia y trabajo de campo. Ha participado en proyectos sobre conocimiento ancestral en la chakra amazónica, sistemas agroforestales y fitopatología. Maneja herramientas como RStudio, QGIS y Jupyter. Comprometida con el desarrollo sostenible, posee habilidades destacadas en liderazgo, comunicación y gestión ambiental.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/milena-ladines-jiménez-13967b237" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:stefania20002015@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section-padding contact-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-white" data-aos="fade-up">Contáctanos</h2>
+            <p class="section-subtitle text-white opacity-80" data-aos="fade-up" data-aos-delay="100">
+                Estamos listos para ayudarte con tus proyectos ambientales. Contáctanos hoy mismo para una consulta personalizada.
+            </p>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="text-white" data-aos="fade-right" data-aos-delay="200">
+                    <h3 class="text-3xl font-bold mb-6">¿Listo para transformar tu proyecto?</h3>
+                    <p class="text-xl mb-8 leading-relaxed opacity-90">
+                        Nuestro equipo de expertos está listo para ayudarte a alcanzar tus objetivos ambientales y de sostenibilidad. Contáctanos hoy mismo para una consulta personalizada.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Ubicación</h4>
+                                <p class="opacity-80">Av. 15 de Noviembre, Tena, Ecuador</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Teléfono</h4>
+                                <p class="opacity-80">+593 979685295</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p class="opacity-80">yakuwasi.ec@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Horario de Atención</h4>
+                                <p class="opacity-80">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex space-x-4">
+                        <a href="https://www.facebook.com/share/1HXghAQDFy/" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="https://www.instagram.com/yakuwasi.consultora/#" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yakuwasi-consultores-ambientales-905901367/" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-delay="300">
+                    <div class="whatsapp-contact-card bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--accent-green);">
+                            <i class="fab fa-whatsapp mr-3"></i>Contáctanos por WhatsApp
+                        </h3>
+                        
+                        <p class="text-gray-700 mb-6 text-center">
+                            Selecciona el servicio de tu interés y contáctanos directamente por WhatsApp para una atención personalizada.
+                        </p>
+                        
+                        <div class="form-group mb-6">
+                            <label for="whatsapp-servicio" class="form-label">Servicio de Interés</label>
+                            <select id="whatsapp-servicio" class="form-input">
+                                <option value="">Seleccione un servicio</option>
+                                <option value="Gestión Ambiental">Gestión Ambiental</option>
+                                <option value="Biorremediación">Biorremediación</option>
+                                <option value="Sistemas de Información Geográfica">Sistemas de Información Geográfica</option>
+                                <option value="Capacitaciones">Capacitaciones</option>
+                                <option value="Calidad del Agua">Calidad del Agua</option>
+                                <option value="Tratamiento del Agua">Tratamiento del Agua</option>
+                                <option value="Asesorías Académicas">Asesorías Académicas</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <a id="whatsapp-button" href="https://wa.me/593979685295?text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios." target="_blank" class="whatsapp-btn block w-full py-4 px-6 text-center text-white font-bold rounded-lg transition-all duration-300 bg-green-500 hover:bg-green-600">
+                            <i class="fab fa-whatsapp mr-2"></i>Contactar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+    <div class="w-full h-96 bg-gray-200">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31908.37371079097!2d-77.83848389999999!3d-0.9916499999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d6c0bc927c1bed%3A0x9b76f4ef83ceb897!2sTena%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1651234567890!5m2!1ses!2sec" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="images/Logo_WakuWasi.png" alt="YakuWasi Logo" class="footer-logo">
+                    <div class="footer-about text-gray-400">
+                        <p>YakuWasi Consultores Ambientales es una empresa líder en soluciones ambientales sostenibles, especializada en gestión del agua y recursos naturales en Ecuador.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#equipo">Equipo</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Gestión Ambiental</a></li>
+                        <li><a href="#servicios">Biorremediación</a></li>
+                        <li><a href="#servicios">Sistemas de Información Geográfica</a></li>
+                        <li><a href="#servicios">Calidad del Agua</a></li>
+                        <li><a href="#servicios">Asesorías Académicas</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Contacto</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. 15 de Noviembre, Tena, Ecuador</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+593 979685295</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>yakuwasi.ec@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 YakuWasi Consultores Ambientales. Todos los derechos reservados.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/1HXghAQDFy/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/yakuwasi.consultora/#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/google-sheets-form.js"></script>
+</body>
+</html>       <div class="footer-bottom flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 YakuWasi Consultores Ambientales. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Política de Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

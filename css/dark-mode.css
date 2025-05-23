@@ -1,0 +1,150 @@
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Ajustes de navegación en modo oscuro */
+body.dark-mode .navbar {
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+}
+
+body.dark-mode .navbar.scrolled {
+    background: rgba(18, 18, 18, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .nav-link {
+    color: #f5f5f5;
+}
+
+body.dark-mode .mobile-menu {
+    background: #1e1e1e;
+}
+
+body.dark-mode .mobile-menu a {
+    color: #f5f5f5;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .mobile-menu a:hover {
+    background: #333;
+}
+
+/* Ajustes de secciones en modo oscuro */
+body.dark-mode .about-section {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .section-title {
+    color: var(--primary-gold);
+}
+
+body.dark-mode .section-subtitle {
+    color: #aaa;
+}
+
+body.dark-mode .text-gray-700 {
+    color: #ccc;
+}
+
+body.dark-mode .text-gray-600 {
+    color: #aaa;
+}
+
+/* Ajustes de tarjetas en modo oscuro */
+body.dark-mode .service-card,
+body.dark-mode .team-card,
+body.dark-mode .whatsapp-contact-card {
+    background: #2d2d2d;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .service-card:hover,
+body.dark-mode .team-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Ajustes de formulario en modo oscuro */
+body.dark-mode .form-label {
+    color: var(--primary-gold);
+}
+
+body.dark-mode .form-input {
+    background-color: #333;
+    border-color: #444;
+    color: #f5f5f5;
+}
+
+body.dark-mode select.form-input {
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+body.dark-mode select.form-input option {
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+/* Ajustes de contacto en modo oscuro */
+body.dark-mode .contact-section {
+    background: linear-gradient(135deg, #1a472a, #0d3320);
+}
+
+body.dark-mode .contact-section .section-title,
+body.dark-mode .contact-section .section-subtitle {
+    color: #f5f5f5;
+}
+
+body.dark-mode .contact-icon {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .contact-text h4 {
+    color: #f5f5f5;
+}
+
+body.dark-mode .contact-text p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Ajustes de botón de WhatsApp en modo oscuro */
+body.dark-mode .whatsapp-btn {
+    background: linear-gradient(135deg, #128C7E, #075E54);
+}
+
+/* Ajustes de botón de tema */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-gold);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode-toggle i {
+    font-size: 1.5rem;
+}
+
+/* Ajustes para el botón de volver arriba en modo oscuro */
+body.dark-mode .back-to-top {
+    background: var(--primary-gold);
+}
