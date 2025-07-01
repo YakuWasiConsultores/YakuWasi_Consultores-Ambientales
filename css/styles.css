@@ -914,6 +914,7 @@ select.form-input option {
     height: 50px;
     background: var(--accent-green);
     color: white;
+    border: none;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -926,7 +927,7 @@ select.form-input option {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.back-to-top.visible {
+.back-to-top.active {
     opacity: 1;
     visibility: visible;
 }
@@ -1022,7 +1023,7 @@ select.form-input option {
 }
 
 /* Preloader */
-.preloader {
+#preloader {
     position: fixed;
     top: 0;
     left: 0;
@@ -1036,7 +1037,7 @@ select.form-input option {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.preloader.fade-out {
+#preloader.fade-out {
     opacity: 0;
     visibility: hidden;
 }
@@ -1045,6 +1046,18 @@ select.form-input option {
     width: 80px;
     height: 80px;
     position: relative;
+}
+
+.water-drop {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: bounce 1.5s ease-in-out infinite;
 }
 
 .loader:before, .loader:after {
@@ -1099,26 +1112,47 @@ select.form-input option {
     background: rgba(218, 165, 32, 0.2);
 }
 
-/* Modo oscuro */
-.dark-mode {
+/* Botón de modo oscuro */
+.dark-mode-toggle {
     position: fixed;
-    top: 100px;
+    bottom: 80px;
     right: 20px;
-    z-index: 999;
-    width: 40px;
-    height: 40px;
-    background: white;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    background: var(--primary-gold);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+    transition: all 0.3s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dark-mode-toggle:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
+    background: var(--secondary-gold);
+}
+
+.dark-mode-toggle:active {
+    transform: translateY(-1px) scale(1.05);
+    transition: all 0.1s ease;
+}
+
+.dark-mode-toggle i {
+    font-size: 1.5rem;
     transition: all 0.3s ease;
 }
 
-.dark-mode:hover {
-    transform: rotate(30deg);
+.dark-mode-toggle:hover i {
+    transform: rotate(180deg);
 }
 
 body.dark {

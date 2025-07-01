@@ -1,5 +1,7 @@
 // Funcionalidad para el botón de WhatsApp y tema oscuro
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM cargado, inicializando funcionalidades...');
+    
     // ===== FUNCIONALIDAD WHATSAPP =====
     // Elementos del formulario de WhatsApp
     const servicioSelect = document.getElementById('whatsapp-servicio');
@@ -36,51 +38,100 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ===== FUNCIONALIDAD TEMA OSCURO =====
-    // Obtener elementos
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
+    initializeDarkMode();
     
-    // Verificar si el botón existe
-    if (darkModeToggle) {
-        console.log("Botón de tema encontrado");
+    function initializeDarkMode() {
+        console.log('Inicializando modo oscuro...');
         
-        // Verificar tema guardado
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            const icon = darkModeToggle.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+        // Esperar un poco más para asegurar que todo esté cargado
+        setTimeout(() => {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            
+            if (!darkModeToggle) {
+                console.error('Botón de modo oscuro no encontrado');
+                return;
             }
-        }
-        
-        // Agregar evento de clic
-        darkModeToggle.addEventListener('click', function() {
-            console.log("Botón de tema clickeado");
             
-            // Alternar clase dark-mode
-            body.classList.toggle('dark-mode');
+            console.log('Botón de modo oscuro encontrado:', darkModeToggle);
             
-            // Alternar icono
-            const icon = darkModeToggle.querySelector('i');
-            if (icon) {
-                if (body.classList.contains('dark-mode')) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                    localStorage.setItem('theme', 'dark');
-                    console.log("Cambiado a tema oscuro");
-                } else {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                    localStorage.setItem('theme', 'light');
-                    console.log("Cambiado a tema claro");
+            // Verificar tema guardado al cargar la página
+            const savedTheme = localStorage.getItem('yakuwasi-theme') || 'light';
+            console.log('Tema guardado:', savedTheme);
+            
+            // Aplicar tema inicial
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                updateDarkModeIcon(true);
+            } else {
+                document.body.classList.remove('dark-mode');
+                updateDarkModeIcon(false);
+            }
+            
+            // Función para alternar tema
+            function toggleDarkMode() {
+                console.log('Alternando tema...');
+                
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                
+                console.log('Modo oscuro activo:', isDarkMode);
+                
+                const newTheme = isDarkMode ? 'dark' : 'light';
+                localStorage.setItem('yakuwasi-theme', newTheme);
+                updateDarkModeIcon(isDarkMode);
+                
+                console.log('Tema cambiado a:', newTheme);
+            }
+            
+            // Múltiples eventos para asegurar compatibilidad
+            darkModeToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Click detectado');
+                toggleDarkMode();
+            });
+            
+            darkModeToggle.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                console.log('Touch detectado');
+                toggleDarkMode();
+            });
+            
+            // Método alternativo usando atributo onclick
+            darkModeToggle.onclick = function(e) {
+                e.preventDefault();
+                console.log('Onclick detectado');
+                toggleDarkMode();
+            };
+            
+            // Función para actualizar el icono del botón
+            function updateDarkModeIcon(isDarkMode) {
+                const icon = darkModeToggle.querySelector('i');
+                if (icon) {
+                    icon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+                    console.log('Icono actualizado:', icon.className);
                 }
             }
-        });
-    } else {
-        console.error("Botón de tema no encontrado");
+            
+            // Test de funcionamiento
+            console.log('Modo oscuro inicializado correctamente');
+            
+        }, 100);
     }
+    
+    // Función global para alternar tema (método de respaldo)
+    window.toggleDarkModeGlobal = function() {
+        console.log('Función global de tema ejecutada');
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('yakuwasi-theme', isDarkMode ? 'dark' : 'light');
+        
+        const btn = document.getElementById('darkModeToggle');
+        const icon = btn ? btn.querySelector('i') : null;
+        if (icon) {
+            icon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    };
     
     // ===== FUNCIONALIDAD GENERAL DEL SITIO =====
     // Preloader
@@ -89,10 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (preloader) {
             setTimeout(function() {
                 preloader.style.opacity = '0';
+                preloader.style.transition = 'opacity 0.5s ease';
                 setTimeout(function() {
                     preloader.style.display = 'none';
                 }, 500);
-            }, 500);
+            }, 300);
         }
     });
     
