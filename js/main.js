@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const whatsappButton = document.getElementById('whatsapp-button');
     
     // Número de WhatsApp
-    const whatsappNumber = '593979685295';
+    const whatsappNumber = '593992827109';
     
     // Actualizar el enlace de WhatsApp cuando cambie el servicio seleccionado
     if (servicioSelect && whatsappButton) {
