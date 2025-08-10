@@ -91,18 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggleDarkMode();
             });
             
-            darkModeToggle.addEventListener('touchend', function(e) {
-                e.preventDefault();
-                console.log('Touch detectado');
-                toggleDarkMode();
-            });
-            
-            // Método alternativo usando atributo onclick
-            darkModeToggle.onclick = function(e) {
-                e.preventDefault();
-                console.log('Onclick detectado');
-                toggleDarkMode();
-            };
+            // Usamos solo 'click' para evitar toggles dobles por eventos táctiles
             
             // Función para actualizar el icono del botón
             function updateDarkModeIcon(isDarkMode) {
