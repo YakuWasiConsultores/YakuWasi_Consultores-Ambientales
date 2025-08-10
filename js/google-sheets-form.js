@@ -2,8 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const scriptURL = 'GOOGLE_SCRIPT_URL'; // URL del script de Google Apps Script
     const form = document.getElementById('contactForm');
+
+    // Si no existe el formulario en esta página, salir silenciosamente
+    if (!form) return;
+
     const submitButton = form.querySelector('button[type="submit"]');
-    const initialButtonText = submitButton.innerHTML;
+    const initialButtonText = submitButton ? submitButton.innerHTML : '';
     
     form.addEventListener('submit', e => {
         e.preventDefault();
@@ -27,8 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Cambiar estado del botón
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
+        }
         
         // Preparar datos para enviar
         const formData = new FormData(form);
@@ -51,8 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 showMessage('Hubo un error al enviar el mensaje. Por favor intente nuevamente.', 'error');
             })
             .finally(() => {
-                submitButton.disabled = false;
-                submitButton.innerHTML = initialButtonText;
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = initialButtonText;
+                }
             });
     });
     

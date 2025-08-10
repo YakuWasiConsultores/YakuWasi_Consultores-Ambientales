@@ -6,13 +6,13 @@ Este documento explica cómo configurar la integración entre el formulario de c
 
 1. Ve a [Google Sheets](https://sheets.google.com) y crea una nueva hoja de cálculo
 2. Renombra la hoja como "Mensajes de Contacto" o el nombre que prefieras
-3. En la primera fila, crea los siguientes encabezados:
-   - A1: Fecha
-   - B1: Nombre
-   - C1: Correo
-   - D1: Teléfono
-   - E1: Servicio
-   - F1: Mensaje
+3. En la primera fila, crea los siguientes encabezados EXACTAMENTE como se muestran (minúsculas):
+  - A1: fecha
+  - B1: nombre
+  - C1: correo
+  - D1: telefono
+  - E1: servicio
+  - F1: mensaje
 
 ## Paso 2: Crear un Script de Google Apps Script
 
@@ -20,49 +20,59 @@ Este documento explica cómo configurar la integración entre el formulario de c
 2. Elimina todo el código predeterminado y pega el siguiente código:
 
 ```javascript
-var sheetName = 'Hoja 1'; // Cambia esto si renombraste la hoja
-var scriptProp = PropertiesService.getScriptProperties();
+const sheetName = 'Hoja 1'; // Cambia esto si renombraste la hoja
+const scriptProp = PropertiesService.getScriptProperties();
 
 function doGet(e) {
-  return HtmlService.createHtmlOutput('El servicio está funcionando correctamente.');
+  return ContentService
+    .createTextOutput('OK')
+    .setMimeType(ContentService.MimeType.TEXT);
 }
 
 function setup() {
-  var doc = SpreadsheetApp.getActiveSpreadsheet();
+  const doc = SpreadsheetApp.getActiveSpreadsheet();
   scriptProp.setProperty('key', doc.getId());
 }
 
 function doPost(e) {
-  var lock = LockService.getScriptLock();
+  const lock = LockService.getScriptLock();
   lock.tryLock(10000);
-  
+
   try {
-    var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
-    var sheet = doc.getSheetByName(sheetName);
-    
-    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
-    var nextRow = sheet.getLastRow() + 1;
-    
-    var newRow = headers.map(function(header) {
-      return header === 'fecha' ? new Date() : e.parameter[header];
+    const doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
+    const sheet = doc.getSheetByName(sheetName);
+
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+      .map(h => String(h).trim());
+    const headerKeys = headers.map(h => h.toLowerCase());
+    const nextRow = sheet.getLastRow() + 1;
+
+    // Normalizar parámetros a minúsculas para mapeo robusto
+    const params = {};
+    Object.keys(e.parameter || {}).forEach(k => {
+      params[k.toLowerCase()] = e.parameter[k];
     });
-    
+
+    const newRow = headerKeys.map(h => {
+      if (h === 'fecha') return new Date();
+      return params[h] ?? '';
+    });
+
     sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
-    
-    return ContentService
-      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-  
-  catch (e) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-  
-  finally {
+
+    return _jsonResponse({ result: 'success', row: nextRow });
+  } catch (err) {
+    return _jsonResponse({ result: 'error', error: String(err) }, 500);
+  } finally {
     lock.releaseLock();
   }
+}
+
+function _jsonResponse(obj, code) {
+  const output = ContentService.createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+  if (code) output.setContent(JSON.stringify(obj));
+  return output;
 }
 ```
 
@@ -85,6 +95,7 @@ function doPost(e) {
 
 1. Abre el archivo `js/google-sheets-form.js` en tu editor
 2. Reemplaza `'GOOGLE_SCRIPT_URL'` con la URL que copiaste en el paso anterior, entre comillas
+3. Asegúrate de que tu formulario tenga estos ids de campos: `nombre`, `correo`, `telefono` (opcional), `servicio`, `mensaje`. El script ya añade `fecha` automáticamente.
 3. Guarda el archivo
 
 ## Paso 5: Probar la Integración
@@ -98,7 +109,7 @@ function doPost(e) {
 Si encuentras algún problema:
 
 - Verifica que la URL del script esté correctamente copiada en el archivo JS
-- Asegúrate de que los nombres de los campos en el formulario coincidan con los encabezados en la hoja de cálculo
+- Asegúrate de que los nombres de los campos en el formulario coincidan con los encabezados en la hoja de cálculo (en minúsculas)
 - Revisa la consola del navegador para ver si hay errores JavaScript
 - Verifica que tu navegador no esté bloqueando las solicitudes (CORS)
 
