@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/dark-mode.css">
 </head>
 <body>
+    <a href="#main" class="skip-link">Saltar al contenido principal</a>
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
@@ -40,17 +41,17 @@
     </div>
     
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
+    <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
     
     <!-- Dark Mode Toggle -->
-    <button id="darkModeToggle" class="dark-mode-toggle">
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Alternar modo oscuro" aria-pressed="false" role="button">
         <i class="fas fa-moon"></i>
     </button>
     
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <a href="#inicio" class="flex items-center space-x-2">
@@ -71,13 +72,13 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-gray-700 mobile-menu-btn">
+                <button class="md:hidden text-gray-700 mobile-menu-btn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
             
             <!-- Mobile Navigation -->
-            <div id="mobileMenu" class="mobile-menu">
+        <div id="mobileMenu" class="mobile-menu" role="menu" aria-label="Menú móvil">
                 <a href="#inicio">Inicio</a>
                 <a href="#nosotros">Nosotros</a>
                 <a href="#servicios">Servicios</a>
@@ -86,10 +87,11 @@
             </div>
         </div>
     </nav>
+    <main id="main" tabindex="-1">
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero-section">
-        <canvas id="water-canvas" class="absolute inset-0 w-full h-full"></canvas>
+    <section id="inicio" class="hero-section" aria-label="Inicio">
+        <canvas id="water-canvas" class="absolute inset-0 w-full h-full" aria-hidden="true" role="presentation"></canvas>
         <div class="hero-content">
             <div class="logo-hero">
                 <img src="images/Logo_WakuWasi.png" alt="YakuWasi Logo" class="w-48 h-48 mx-auto mb-6" style="filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));">
@@ -118,9 +120,9 @@
     </section>
 
     <!-- About Section -->
-    <section id="nosotros" class="section-padding about-section">
+    <section id="nosotros" class="section-padding about-section" aria-labelledby="titulo-nosotros">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title" data-aos="fade-up">Sobre Nosotros</h2>
+            <h2 id="titulo-nosotros" class="section-title" data-aos="fade-up">Sobre Nosotros</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
                 Somos un equipo de profesionales comprometidos con el desarrollo sostenible y la protección del medio ambiente, especializados en soluciones para la gestión y conservación del agua y suelo. Nuestra labor busca restaurar el equilibrio ecológico y promover prácticas sostenibles en diversos sectores productivos y comunitarios.
             </p>
@@ -197,9 +199,9 @@
     </section>
 
     <!-- Services Section -->
-    <section id="servicios" class="section-padding bg-white">
+    <section id="servicios" class="section-padding bg-white" aria-labelledby="titulo-servicios">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
+            <h2 id="titulo-servicios" class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
                 Ofrecemos soluciones integrales en gestión ambiental y recursos hídricos, adaptadas a las necesidades específicas de cada cliente y sector.
             </p>
@@ -279,9 +281,9 @@
     </section>
     
     <!-- Team Section -->
-    <section id="equipo" class="section-padding team-section">
+    <section id="equipo" class="section-padding team-section" aria-labelledby="titulo-equipo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title" data-aos="fade-up">Nuestro Equipo Consultor</h2>
+            <h2 id="titulo-equipo" class="section-title" data-aos="fade-up">Nuestro Equipo Consultor</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
                 Contamos con un equipo multidisciplinario de profesionales altamente calificados y comprometidos con la excelencia.
             </p>
@@ -290,7 +292,7 @@
                 <!-- Kevin Castro -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="team-avatar">
-                        <img src="Profiles/Profile_PNGs/no_bg_Img_Kevin Castro.png" 
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Kevin Castro.png" loading="lazy" decoding="async"
                              alt="Ing. Kevin Castro">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Ing. Kevin Castro</h3>
@@ -299,7 +301,7 @@
                         Hidrologo con experiencia en SIG aplicados a la planificación territorial y análisis ambiental. Especialista en gestión de proyectos ambientales e hidrológicos, con enfoque en sostenibilidad, desarrollo local y resiliencia climática. Ha liderado estudios en cuencas hidrográficas y soluciones basadas en la naturaleza.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/kevin-castro-997a8333a/" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/kevin-castro-997a8333a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="mailto:castro.1997.3@gmail.com" aria-label="Email">
@@ -311,7 +313,7 @@
                 <!-- Arnold Hernández -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="team-avatar">
-                        <img src="Profiles/Profile_PNGs/no_bg_Img_Arnoldd Hernandez.png" 
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Arnoldd Hernandez.png" loading="lazy" decoding="async"
                              alt="Ing. Arnold Hernández">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Ing. Arnold Hernández</h3>
@@ -320,7 +322,7 @@
                         Biotecnólogo con experiencia en bioinformática y modelado de sistemas biológicos, biorremediación, microbiología e I+D. Su enfoque integra herramientas computacionales y biotecnológicas para el desarrollo de soluciones ambientales innovadoras, especialmente en el tratamiento de aguas y restauración ecológica.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/arnoldd-hernandez-b32863215/" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/arnoldd-hernandez-b32863215/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="mailto:rodrigohurtado190@outlook.com" aria-label="Email">
@@ -332,7 +334,7 @@
                 <!-- Tanya Camalle -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="team-avatar">
-                        <img src="Profiles/Profile_PNGs/no_bg_Img_Tanya Camalle.png" 
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Tanya Camalle.png" loading="lazy" decoding="async"
                              alt="Ing. Tanya Camalle">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Ing. Tanya Camalle</h3>
@@ -341,7 +343,7 @@
                         Ingeniera en Agroecología con experiencia en el diseño y gestión de sistemas agroecológicos sostenibles. Especialista en manejo ecológico de plagas, fertilización sostenible y nutrición del suelo. También se desempeña en asesoría técnica, capacitación y formulación de proyectos productivos y ambientales.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/tanya-camalle-valverde-7545ab308/" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/tanya-camalle-valverde-7545ab308/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="mailto:tanyavl183@gmail.com" aria-label="Email">
@@ -353,7 +355,7 @@
                 <!-- Milena Ladines -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="team-avatar">
-                        <img src="Profiles/Profile_PNGs/no_bg_Img_Milena Ladines.png" 
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Milena Ladines.png" loading="lazy" decoding="async"
                              alt="Ing. Milena Ladines">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Ing. Milena Ladines</h3>
@@ -362,7 +364,7 @@
                         Ingeniera en Agroecología con experiencia en investigación, docencia y trabajo de campo. Ha participado en proyectos sobre conocimiento ancestral en la chakra amazónica, sistemas agroforestales y fitopatología. Maneja herramientas como RStudio, QGIS y Jupyter. Comprometida con el desarrollo sostenible, posee habilidades destacadas en liderazgo, comunicación y gestión ambiental.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/milena-ladines-jiménez-13967b237" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/milena-ladines-jiménez-13967b237" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="mailto:stefania20002015@gmail.com" aria-label="Email">
@@ -375,9 +377,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="section-padding contact-section">
+    <section id="contacto" class="section-padding contact-section" aria-labelledby="titulo-contacto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title text-white" data-aos="fade-up">Contáctanos</h2>
+            <h2 id="titulo-contacto" class="section-title text-white" data-aos="fade-up">Contáctanos</h2>
             <p class="section-subtitle text-white opacity-80" data-aos="fade-up" data-aos-delay="100">
                 Estamos listos para ayudarte con tus proyectos ambientales. Contáctanos hoy mismo para una consulta personalizada.
             </p>
@@ -432,16 +434,16 @@
                     </div>
                     
                     <div class="mt-8 flex space-x-4">
-                        <a href="https://www.facebook.com/share/1HXghAQDFy/" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors">
+                        <a href="https://www.facebook.com/share/1HXghAQDFy/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors" aria-label="Facebook">
                             <i class="fab fa-facebook-f text-white"></i>
                         </a>
-                        <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors" aria-label="Twitter">
                             <i class="fab fa-twitter text-white"></i>
                         </a>
-                        <a href="https://www.instagram.com/yakuwasi.consultora/#" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors">
+                        <a href="https://www.instagram.com/yakuwasi.consultora/#" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors" aria-label="Instagram">
                             <i class="fab fa-instagram text-white"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/yakuwasi-consultores-ambientales-905901367/" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors">
+                        <a href="https://www.linkedin.com/in/yakuwasi-consultores-ambientales-905901367/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-primary-gold transition-colors" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in text-white"></i>
                         </a>
                     </div>
@@ -472,7 +474,7 @@
                             </select>
                         </div>
                         
-                        <a id="whatsapp-button" href="https://wa.me/593992827109?text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios." target="_blank" class="whatsapp-btn block w-full py-4 px-6 text-center text-white font-bold rounded-lg transition-all duration-300 bg-green-500 hover:bg-green-600">
+                        <a id="whatsapp-button" href="https://wa.me/593992827109?text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="whatsapp-btn block w-full py-4 px-6 text-center text-white font-bold rounded-lg transition-all duration-300 bg-green-500 hover:bg-green-600" aria-label="Contactar por WhatsApp">
                             <i class="fab fa-whatsapp mr-2"></i>Contactar por WhatsApp
                         </a>
                     </div>
@@ -543,14 +545,15 @@
                     <p>&copy; 2025 YakuWasi Consultores Ambientales. Todos los derechos reservados.</p>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/share/1HXghAQDFy/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/yakuwasi.consultora/#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/share/1HXghAQDFy/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/yakuwasi.consultora/#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
     </footer>
+    </main>
 
     <!-- Scripts -->
     <!-- AOS Animation -->

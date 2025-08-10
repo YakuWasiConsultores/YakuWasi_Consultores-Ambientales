@@ -111,6 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     icon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
                     console.log('Icono actualizado:', icon.className);
                 }
+                // ARIA state
+                darkModeToggle.setAttribute('aria-pressed', String(isDarkMode));
             }
             
             // Test de funcionamiento
@@ -155,6 +157,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
+            const expanded = mobileMenu.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', String(expanded));
+            mobileMenuBtn.setAttribute('aria-label', expanded ? 'Cerrar menú' : 'Abrir menú');
             
             // Toggle icon
             const icon = mobileMenuBtn.querySelector('i');
@@ -232,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let width, height;
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
         function resizeCanvas() {
             width = canvas.width = canvas.offsetWidth;
@@ -244,14 +250,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const waves = {
             count: 5,
             y: height / 2,
-            length: 100,
-            amplitude: 20,
-            frequency: 0.01
+            length: reduceMotion ? 80 : 100,
+            amplitude: reduceMotion ? 10 : 20,
+            frequency: reduceMotion ? 0.005 : 0.01
         };
         
         let time = 0;
         
-        function animate() {
+    function animate() {
             requestAnimationFrame(animate);
             ctx.clearRect(0, 0, width, height);
             
@@ -279,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ctx.fill();
             }
             
-            time += 0.05;
+            time += reduceMotion ? 0.02 : 0.05;
         }
         
         animate();

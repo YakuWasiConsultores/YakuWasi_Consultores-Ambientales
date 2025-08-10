@@ -21,6 +21,8 @@ body {
     scroll-behavior: smooth;
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Utilidades */
@@ -65,6 +67,28 @@ body {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(218, 165, 32, 0.2);
     transition: all 0.3s ease;
+}
+
+/* Skip link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    background: #111827;
+    color: #fff;
+    border-radius: 0.375rem;
+    z-index: 1100;
 }
 
 .navbar.scrolled {
@@ -136,6 +160,12 @@ body {
 .mobile-menu a:hover {
     background: var(--light-green);
     padding-left: 1.5rem;
+}
+
+/* Focus visible global */
+:focus-visible {
+    outline: 3px solid var(--primary-gold);
+    outline-offset: 3px;
 }
 
 /* Hero Section */
@@ -264,6 +294,9 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+.cta-btn:focus-visible {
+    box-shadow: 0 0 0 4px rgba(218,165,32,0.35);
+}
 
 .cta-primary {
     background: var(--accent-green);
@@ -344,6 +377,9 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     border-bottom: 4px solid var(--primary-gold);
+}
+.service-card:focus-within {
+    box-shadow: 0 0 0 4px rgba(218,165,32,0.25);
 }
 
 .service-icon {
@@ -483,6 +519,9 @@ body {
 .team-card:hover {
     transform: translateY(-15px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+.team-card:focus-within {
+    box-shadow: 0 0 0 4px rgba(218,165,32,0.25);
 }
 
 .team-avatar {
@@ -816,6 +855,10 @@ select.form-input option {
     color: white;
     transform: translateX(5px);
 }
+.footer-links a:focus-visible {
+    color: white;
+    text-decoration: underline;
+}
 
 .footer-contact-item {
     display: flex;
@@ -857,6 +900,9 @@ select.form-input option {
     background: var(--primary-gold);
     transform: translateY(-5px);
 }
+.footer-social a:focus-visible {
+    background: var(--primary-gold);
+}
 
 /* Animaciones */
 @keyframes fadeInUp {
@@ -884,6 +930,16 @@ select.form-input option {
     }
     60% {
         transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+/* Respeto a reduce-motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
