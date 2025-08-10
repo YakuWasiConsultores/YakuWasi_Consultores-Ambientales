@@ -296,8 +296,8 @@
                 <!-- Kevin Castro -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="team-avatar">
-                        <img src="Profiles/Profile_PNGs/no_bg_Img_Kevin Castro.png" loading="lazy" decoding="async"
-                             alt="Ing. Kevin Castro">
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Kevin Castro.png" loading="lazy" decoding="async" fetchpriority="low" width="150" height="150"
+                        alt="Ing. Kevin Castro">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Ing. Kevin Castro</h3>
                     <p class="font-medium mb-3" style="color: var(--primary-gold);">Director</p>
@@ -317,8 +317,8 @@
                 <!-- Arnold Hernández -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="team-avatar">
-                        <img src="Profiles/Profile_PNGs/no_bg_Img_Arnoldd Hernandez.png" loading="lazy" decoding="async"
-                             alt="Ing. Arnold Hernández">
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Arnoldd Hernandez.png" loading="lazy" decoding="async" fetchpriority="low" width="150" height="150"
+                        alt="Ing. Arnold Hernández">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Ing. Arnold Hernández</h3>
                     <p class="font-medium mb-3" style="color: var(--primary-gold);">Sub Director</p>
@@ -338,8 +338,8 @@
                 <!-- Tanya Camalle -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="team-avatar">
-                        <img src="Profiles/Profile_PNGs/no_bg_Img_Tanya Camalle.png" loading="lazy" decoding="async"
-                             alt="Ing. Tanya Camalle">
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Tanya Camalle.png" loading="lazy" decoding="async" fetchpriority="low" width="150" height="150"
+                        alt="Ing. Tanya Camalle">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Ing. Tanya Camalle</h3>
                     <p class="font-medium mb-3" style="color: var(--primary-gold);">Analista de Proyectos</p>
@@ -359,8 +359,8 @@
                 <!-- Milena Ladines -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="team-avatar">
-                        <img src="Profiles/Profile_PNGs/no_bg_Img_Milena Ladines.png" loading="lazy" decoding="async"
-                             alt="Ing. Milena Ladines">
+                        <img src="Profiles/Profile_PNGs/no_bg_Img_Milena Ladines.png" loading="lazy" decoding="async" fetchpriority="low" width="150" height="150"
+                        alt="Ing. Milena Ladines">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Ing. Milena Ladines</h3>
                     <p class="font-medium mb-3" style="color: var(--primary-gold);">Gerente de Proyectos</p>
@@ -572,5 +572,41 @@
     <!-- Custom JS -->
     <script src="js/main.js"></script>
     <script src="js/google-sheets-form.js"></script>
+        <script>
+            // Prefetch team images to improve perceived load time without hurting LCP
+            (function(){
+                const teamSection = document.getElementById('equipo');
+                const teamImgs = Array.from(document.querySelectorAll('#equipo .team-avatar img'));
+                if (!teamSection || teamImgs.length === 0) return;
+
+                let warmed = false;
+                function warmImages() {
+                    if (warmed) return; warmed = true;
+                    teamImgs.forEach(img => {
+                        const src = img.currentSrc || img.src;
+                        const i = new Image();
+                        // Hint higher priority once user intent/approach is detected
+                        try { i.fetchPriority = 'high'; } catch(_){}
+                        i.decoding = 'async';
+                        i.src = src;
+                    });
+                }
+                // Warm on nav hover/focus
+                const equipoLinks = document.querySelectorAll('a[href="#equipo"]');
+                equipoLinks.forEach(a => {
+                    a.addEventListener('mouseenter', warmImages, { once: true });
+                    a.addEventListener('focus', warmImages, { once: true });
+                });
+                // Warm when section is near viewport
+                if ('IntersectionObserver' in window) {
+                    const io = new IntersectionObserver((entries, obs) => {
+                        for (const e of entries) {
+                            if (e.isIntersecting) { warmImages(); obs.disconnect(); break; }
+                        }
+                    }, { rootMargin: '400px 0px' });
+                    io.observe(teamSection);
+                }
+            })();
+        </script>
 </body>
 </html>
