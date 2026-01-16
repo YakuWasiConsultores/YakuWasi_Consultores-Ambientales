@@ -63,12 +63,16 @@
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="#inicio" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Inicio</a>
                     <a href="#nosotros" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Nosotros</a>
                     <a href="#servicios" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Servicios</a>
                     <a href="#equipo" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Equipo</a>
                     <a href="#contacto" class="nav-link text-gray-700 hover:text-yellow-600 font-medium transition-colors">Contacto</a>
+                    <button id="ctaQuoteBtn" class="cta-quote-btn" aria-haspopup="dialog">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Solicitar Cotización</span>
+                    </button>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -84,6 +88,10 @@
                 <a href="#servicios">Servicios</a>
                 <a href="#equipo">Equipo</a>
                 <a href="#contacto">Contacto</a>
+                <button id="ctaQuoteBtnMobile" class="cta-quote-btn cta-quote-btn--mobile" aria-haspopup="dialog">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Solicitar Cotización</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -198,88 +206,147 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="section-padding bg-white" aria-labelledby="titulo-servicios">
+    <!-- Services Section - Departamentos Estratégicos -->
+    <section id="servicios" class="section-padding services-section" aria-labelledby="titulo-servicios">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 id="titulo-servicios" class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                Ofrecemos soluciones integrales en gestión ambiental y recursos hídricos, adaptadas a las necesidades específicas de cada cliente y sector.
+                Tres departamentos estratégicos con soluciones integrales para el desarrollo sostenible y la protección ambiental.
             </p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Gestión Ambiental</h3>
-                    <p class="text-gray-600 leading-relaxed">EIAs, auditorías y planes de manejo alineados a la normativa, adaptados a cada proyecto.</p>
-                </div>
+            <!-- Departamentos Grid -->
+            <div class="departments-grid">
                 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i class="fas fa-bacteria"></i>
+                <!-- Departamento 1: Ingeniería y Gestión Ambiental -->
+                <article class="department-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="department-header">
+                        <div class="department-icon department-icon--environmental">
+                            <i class="fas fa-hand-holding-water"></i>
+                        </div>
+                        <span class="department-badge">Departamento 01</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Biorremediación</h3>
-                    <p class="text-gray-600 leading-relaxed">Microorganismos y plantas para remediar sitios contaminados de forma sostenible.</p>
-                </div>
+                    
+                    <div class="department-content">
+                        <h3 class="department-title">Ingeniería y Gestión Ambiental</h3>
+                        <p class="department-description">
+                            Soluciones integrales para el cumplimiento normativo MAATE, calidad del agua y restauración ecológica.
+                        </p>
+                        
+                        <ul class="department-services">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Gestión Ambiental (EIAs, auditorías, planes de manejo)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Calidad y Tratamiento de Agua</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Biorremediación de sitios contaminados</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Transición Agroecológica Sostenible</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="department-footer">
+                        <a href="#contacto" class="department-cta">
+                            <span>Más información</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
                 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-icon">
-                        <i class="fas fa-map-marked-alt"></i>
+                <!-- Departamento 2: Soluciones Tecnológicas -->
+                <article class="department-card department-card--featured" data-aos="fade-up" data-aos-delay="300">
+                    <div class="department-header">
+                        <div class="department-icon department-icon--tech">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span class="department-badge">Departamento 02</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Sistemas de Información Geográfica</h3>
-                    <p class="text-gray-600 leading-relaxed">Análisis espacial, mapeo y modelos para decisiones basadas en datos.</p>
-                </div>
+                    
+                    <div class="department-content">
+                        <h3 class="department-title">Soluciones Tecnológicas</h3>
+                        <p class="department-subtitle">Tech & Data</p>
+                        <p class="department-description">
+                            Innovación digital aplicada al ambiente: Software especializado, análisis de datos y cartografía digital.
+                        </p>
+                        
+                        <ul class="department-services">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Sistemas de Información Geográfica (SIG)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Desarrollo de Software Especializado</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Bioinformática y pipelines ETL</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>APIs y automatización científica</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="department-footer">
+                        <a href="#contacto" class="department-cta">
+                            <span>Más información</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
                 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                <!-- Departamento 3: Academia YakuWasi -->
+                <article class="department-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="department-header">
+                        <div class="department-icon department-icon--academy">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span class="department-badge">Departamento 03</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Capacitaciones</h3>
-                    <p class="text-gray-600 leading-relaxed">Programas a medida en gestión ambiental, agua y cumplimiento normativo.</p>
-                </div>
+                    
+                    <div class="department-content">
+                        <h3 class="department-title">Academia YakuWasi</h3>
+                        <p class="department-description">
+                            Formación profesional de alto nivel y acompañamiento en investigación científica.
+                        </p>
+                        
+                        <ul class="department-services">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Capacitaciones en gestión ambiental</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Asesorías Académicas y Científicas</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Acompañamiento en tesis e investigación</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Cursos especializados en agua y ambiente</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="department-footer">
+                        <a href="#contacto" class="department-cta">
+                            <span>Más información</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
                 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-icon">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Calidad del Agua</h3>
-                    <p class="text-gray-600 leading-relaxed">Monitoreo y evaluación de calidad de agua según estándares vigentes.</p>
-                </div>
-                
-                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
-                    <div class="service-icon">
-                        <i class="fas fa-filter"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Tratamiento del Agua</h3>
-                    <p class="text-gray-600 leading-relaxed">Diseño e implementación de sistemas de tratamiento eficientes y sostenibles.</p>
-                </div>
-                
-                <div class="service-card" data-aos="fade-up" data-aos-delay="800">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Asesorías Académicas</h3>
-                    <p class="text-gray-600 leading-relaxed">Acompañamiento en tesis, investigación y cursos en ambiente y agua.</p>
-                </div>
-
-                <!-- Transición Agroecológica Sostenible -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="900">
-                    <div class="service-icon">
-                        <i class="fas fa-tree"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Transición Agroecológica Sostenible</h3>
-                    <p class="text-gray-600 leading-relaxed">Acompañamos la transición agroecológica con herramientas y estrategias que mejoran el uso del agua, la salud del suelo y la sostenibilidad de sistemas agrícolas y comunitarios.</p>
-                </div>
-
-                <!-- Desarrollo (Bioinformática, SIG y Ambiente) -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="1000">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--accent-green);">Desarrollo de software especializado</h3>
-                    <p class="text-gray-600 leading-relaxed">Software y pipelines para análisis bioinformático, ETL geoespacial, APIs y automatización científica orientada a datos ambientales.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -559,6 +626,141 @@
     </footer>
     </main>
 
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle" aria-hidden="true">
+        <div class="quote-modal__overlay" data-close-modal></div>
+        <div class="quote-modal__container">
+            <button class="quote-modal__close" aria-label="Cerrar formulario" data-close-modal>
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="quote-modal__header">
+                <div class="quote-modal__icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h2 id="quoteModalTitle" class="quote-modal__title">¿Listo para iniciar tu proyecto?</h2>
+                <p class="quote-modal__subtitle">Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.</p>
+            </div>
+            
+            <form id="quoteForm" class="quote-form" novalidate>
+                <div class="quote-form__row">
+                    <div class="quote-form__group">
+                        <label for="quote-nombre" class="quote-form__label">
+                            Nombre Completo <span class="quote-form__required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="quote-nombre" 
+                            name="nombre" 
+                            class="quote-form__input" 
+                            placeholder="Ej: Juan Pérez" 
+                            required
+                            autocomplete="name"
+                        >
+                        <span class="quote-form__error">Por favor ingresa tu nombre</span>
+                    </div>
+                    
+                    <div class="quote-form__group">
+                        <label for="quote-email" class="quote-form__label">
+                            Correo Electrónico <span class="quote-form__required">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="quote-email" 
+                            name="email" 
+                            class="quote-form__input" 
+                            placeholder="Ej: correo@empresa.com" 
+                            required
+                            autocomplete="email"
+                        >
+                        <span class="quote-form__error">Por favor ingresa un email válido</span>
+                    </div>
+                </div>
+                
+                <div class="quote-form__row">
+                    <div class="quote-form__group">
+                        <label for="quote-empresa" class="quote-form__label">
+                            Nombre de la Empresa <span class="quote-form__optional">(Opcional)</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="quote-empresa" 
+                            name="empresa" 
+                            class="quote-form__input" 
+                            placeholder="Ej: Mi Empresa S.A."
+                            autocomplete="organization"
+                        >
+                    </div>
+                    
+                    <div class="quote-form__group">
+                        <label for="quote-servicio" class="quote-form__label">
+                            Tipo de Servicio <span class="quote-form__required">*</span>
+                        </label>
+                        <select id="quote-servicio" name="servicio" class="quote-form__input quote-form__select" required>
+                            <option value="">Selecciona un servicio</option>
+                            <optgroup label="Ingeniería y Gestión Ambiental">
+                                <option value="gestion-ambiental">Gestión Ambiental (EIAs, auditorías)</option>
+                                <option value="calidad-agua">Calidad y Tratamiento de Agua</option>
+                                <option value="biorremediacion">Biorremediación</option>
+                                <option value="agroecologia">Transición Agroecológica</option>
+                            </optgroup>
+                            <optgroup label="Soluciones Tecnológicas">
+                                <option value="sig">Sistemas de Información Geográfica (SIG)</option>
+                                <option value="desarrollo-software">Desarrollo de Software Especializado</option>
+                            </optgroup>
+                            <optgroup label="Academia YakuWasi">
+                                <option value="capacitaciones">Capacitaciones</option>
+                                <option value="asesorias">Asesorías Académicas y Científicas</option>
+                            </optgroup>
+                            <option value="otro">Otro / Consulta General</option>
+                        </select>
+                        <span class="quote-form__error">Por favor selecciona un servicio</span>
+                    </div>
+                </div>
+                
+                <div class="quote-form__group">
+                    <label for="quote-mensaje" class="quote-form__label">
+                        Mensaje breve <span class="quote-form__optional">(Opcional)</span>
+                    </label>
+                    <textarea 
+                        id="quote-mensaje" 
+                        name="mensaje" 
+                        class="quote-form__input quote-form__textarea" 
+                        placeholder="Cuéntanos brevemente sobre tu proyecto o necesidad..."
+                        rows="4"
+                    ></textarea>
+                </div>
+                
+                <button type="submit" class="quote-form__submit">
+                    <span class="quote-form__submit-text">Enviar Solicitud</span>
+                    <span class="quote-form__submit-loading">
+                        <i class="fas fa-spinner fa-spin"></i> Enviando...
+                    </span>
+                    <i class="fas fa-paper-plane quote-form__submit-icon"></i>
+                </button>
+                
+                <p class="quote-form__privacy">
+                    <i class="fas fa-shield-alt"></i>
+                    Tu información está segura. No compartimos tus datos con terceros.
+                </p>
+            </form>
+            
+            <!-- Success State -->
+            <div id="quoteSuccess" class="quote-modal__success" hidden>
+                <div class="quote-modal__success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="quote-modal__success-title">¡Solicitud Enviada!</h3>
+                <p class="quote-modal__success-text">
+                    Gracias por tu interés. Nuestro equipo se pondrá en contacto contigo en menos de 24 horas.
+                </p>
+                <button class="quote-modal__success-btn" data-close-modal>
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -606,6 +808,174 @@
                     }, { rootMargin: '400px 0px' });
                     io.observe(teamSection);
                 }
+            })();
+        </script>
+
+        <!-- Quote Modal Script -->
+        <script>
+            (function() {
+                'use strict';
+                
+                // DOM Elements
+                const modal = document.getElementById('quoteModal');
+                const form = document.getElementById('quoteForm');
+                const successState = document.getElementById('quoteSuccess');
+                const ctaBtn = document.getElementById('ctaQuoteBtn');
+                const ctaBtnMobile = document.getElementById('ctaQuoteBtnMobile');
+                const closeButtons = modal.querySelectorAll('[data-close-modal]');
+                
+                let lastFocusedElement = null;
+                
+                // Open Modal
+                function openModal() {
+                    lastFocusedElement = document.activeElement;
+                    modal.classList.add('is-open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Focus first input
+                    setTimeout(() => {
+                        const firstInput = form.querySelector('input, select, textarea');
+                        if (firstInput) firstInput.focus();
+                    }, 100);
+                    
+                    // Trap focus inside modal
+                    modal.addEventListener('keydown', trapFocus);
+                }
+                
+                // Close Modal
+                function closeModal() {
+                    modal.classList.remove('is-open');
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                    
+                    // Reset form and states
+                    form.reset();
+                    form.classList.remove('is-submitting');
+                    successState.hidden = true;
+                    form.hidden = false;
+                    document.querySelector('.quote-modal__header').hidden = false;
+                    
+                    // Clear validation states
+                    form.querySelectorAll('.quote-form__group').forEach(group => {
+                        group.classList.remove('has-error');
+                    });
+                    
+                    // Return focus
+                    if (lastFocusedElement) lastFocusedElement.focus();
+                    
+                    modal.removeEventListener('keydown', trapFocus);
+                }
+                
+                // Trap Focus inside Modal
+                function trapFocus(e) {
+                    if (e.key === 'Escape') {
+                        closeModal();
+                        return;
+                    }
+                    
+                    if (e.key !== 'Tab') return;
+                    
+                    const focusableElements = modal.querySelectorAll(
+                        'button:not([hidden]), input:not([hidden]), select:not([hidden]), textarea:not([hidden]), [tabindex]:not([tabindex="-1"]):not([hidden])'
+                    );
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+                    
+                    if (e.shiftKey && document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    } else if (!e.shiftKey && document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+                
+                // Validate Field
+                function validateField(field) {
+                    const group = field.closest('.quote-form__group');
+                    let isValid = true;
+                    
+                    if (field.required && !field.value.trim()) {
+                        isValid = false;
+                    }
+                    
+                    if (field.type === 'email' && field.value) {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        isValid = emailRegex.test(field.value);
+                    }
+                    
+                    if (group) {
+                        group.classList.toggle('has-error', !isValid);
+                    }
+                    
+                    return isValid;
+                }
+                
+                // Form Submission
+                function handleSubmit(e) {
+                    e.preventDefault();
+                    
+                    // Validate all required fields
+                    const requiredFields = form.querySelectorAll('[required]');
+                    let isFormValid = true;
+                    
+                    requiredFields.forEach(field => {
+                        if (!validateField(field)) {
+                            isFormValid = false;
+                        }
+                    });
+                    
+                    if (!isFormValid) {
+                        // Focus first error field
+                        const firstError = form.querySelector('.has-error input, .has-error select');
+                        if (firstError) firstError.focus();
+                        return;
+                    }
+                    
+                    // Show loading state
+                    form.classList.add('is-submitting');
+                    
+                    // Simulate API call (replace with actual API)
+                    setTimeout(() => {
+                        // Collect form data
+                        const formData = new FormData(form);
+                        const data = Object.fromEntries(formData.entries());
+                        console.log('Form submitted:', data);
+                        
+                        // Show success state
+                        form.hidden = true;
+                        document.querySelector('.quote-modal__header').hidden = true;
+                        successState.hidden = false;
+                        
+                        // Focus success button
+                        const successBtn = successState.querySelector('button');
+                        if (successBtn) successBtn.focus();
+                        
+                    }, 1500);
+                }
+                
+                // Event Listeners
+                if (ctaBtn) ctaBtn.addEventListener('click', openModal);
+                if (ctaBtnMobile) ctaBtnMobile.addEventListener('click', openModal);
+                
+                closeButtons.forEach(btn => {
+                    btn.addEventListener('click', closeModal);
+                });
+                
+                form.addEventListener('submit', handleSubmit);
+                
+                // Real-time validation
+                form.querySelectorAll('input, select').forEach(field => {
+                    field.addEventListener('blur', () => validateField(field));
+                    field.addEventListener('input', () => {
+                        const group = field.closest('.quote-form__group');
+                        if (group && group.classList.contains('has-error')) {
+                            validateField(field);
+                        }
+                    });
+                });
+                
             })();
         </script>
 </body>
