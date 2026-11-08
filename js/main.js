@@ -229,14 +229,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS Animation
     if (typeof AOS !== 'undefined') {
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
+            duration: 700,
+            easing: 'ease-out-cubic',
             once: true,
-            mirror: false
+            mirror: false,
+            offset: 40
+        });
+        window.addEventListener('load', function() {
+            AOS.refresh();
         });
     }
     
-    // Water Canvas Animation
+    // Topographic & Hydrological Isolines Canvas (Cartografía Amazónica)
     const canvas = document.getElementById('water-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -251,48 +255,48 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
         
-        const waves = {
-            count: 5,
-            y: height / 2,
-            length: reduceMotion ? 80 : 100,
-            amplitude: reduceMotion ? 10 : 20,
-            frequency: reduceMotion ? 0.005 : 0.01
-        };
-        
+        const lineCount = 14;
         let time = 0;
         
-    function animate() {
-            requestAnimationFrame(animate);
+        function drawContours() {
             ctx.clearRect(0, 0, width, height);
             
-            // Draw waves
-            for (let i = 0; i < waves.count; i++) {
+            for (let i = 0; i < lineCount; i++) {
                 ctx.beginPath();
-                ctx.moveTo(0, height);
+                const baseRatio = (i + 1) / (lineCount + 1);
+                const baseY = height * (0.12 + baseRatio * 0.78);
+                const isMajorLine = i % 4 === 0;
                 
-                const waveLength = waves.length + i * 50;
-                const amplitude = waves.amplitude - i * 3;
-                const frequency = waves.frequency;
-                const yOffset = height - (height / 3) + (i * 50);
-                
-                for (let x = 0; x < width; x += 10) {
-                    const y = yOffset + Math.sin((x * frequency) + time + i) * amplitude;
-                    ctx.lineTo(x, y);
+                for (let x = 0; x <= width; x += 14) {
+                    const n1 = Math.sin(x * 0.0022 + time + i * 0.45) * 28;
+                    const n2 = Math.cos(x * 0.0055 - time * 0.6 + i * 0.8) * 14;
+                    const slope = (x / Math.max(width, 1)) * 35 - 17;
+                    const y = baseY + n1 + n2 + slope;
+                    
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
                 }
                 
-                ctx.lineTo(width, height);
-                ctx.lineTo(0, height);
-                ctx.closePath();
-                
-                const alpha = 0.5 - (i * 0.1);
-                ctx.fillStyle = `rgba(100, 150, 200, ${alpha})`;
-                ctx.fill();
+                if (isMajorLine) {
+                    ctx.strokeStyle = 'rgba(201, 151, 70, 0.16)';
+                    ctx.lineWidth = 1.2;
+                } else {
+                    ctx.strokeStyle = 'rgba(120, 185, 165, 0.09)';
+                    ctx.lineWidth = 0.8;
+                }
+                ctx.stroke();
             }
             
-            time += reduceMotion ? 0.02 : 0.05;
+            if (!reduceMotion) {
+                time += 0.0045;
+                requestAnimationFrame(drawContours);
+            }
         }
         
-        animate();
+        drawContours();
     }
     
     // Active Navigation Link & Navbar Scrolled State

@@ -1,315 +1,207 @@
-/* Estilos para el modo oscuro */
+/* =============================================
+   MODO OSCURO: BOSQUE NOCTURNO & PIZARRA AMAZÓNICA
+   ============================================= */
+
 body.dark-mode {
-    background-color: #121212;
-    color: #f5f5f5;
+    --bg-stone: #0B1511;
+    --bg-stone-alt: #101F18;
+    --bg-surface: #152820;
+
+    --ink-forest: #F2EFE9;
+    --ink-body: #CFD9D3;
+    --ink-muted: #93A79C;
+
+    --primary-gold: #D8A652;
+    --secondary-gold: #E2B86B;
+    --primary-blue: #64B5F6;
+    --accent-green: #4CAF50;
+    --light-green: rgba(76, 175, 80, 0.18);
+
+    --border-hairline: rgba(242, 239, 233, 0.11);
+    --border-strong: rgba(242, 239, 233, 0.2);
+
+    background-color: var(--bg-stone);
+    color: var(--ink-body);
 }
 
-/* Ajustes de navegación en modo oscuro */
+/* Navegación en Modo Oscuro */
 body.dark-mode .navbar {
-    background: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+    background: rgba(11, 21, 17, 0.88);
+    border-bottom: 1px solid var(--border-hairline);
 }
 
 body.dark-mode .navbar.scrolled {
-    background: rgba(18, 18, 18, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    background: rgba(11, 21, 17, 0.96);
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45);
 }
 
-body.dark-mode .navbar .text-gray-800 {
-    color: #f5f5f5;
+body.dark-mode .brand-logo-wrap {
+    background: #F4F2EB;
+    padding: 0.25rem 0.35rem;
+    border-radius: 6px;
 }
 
-body.dark-mode .navbar .text-gray-600 {
-    color: #b0b0b0;
+body.dark-mode .cta-quote-btn {
+    background: #C99746;
+    color: #0B1511;
+    border-color: #C99746;
 }
 
-body.dark-mode .nav-link,
-body.dark-mode .mobile-menu-btn {
-    color: #f5f5f5;
+body.dark-mode .cta-quote-btn i {
+    color: #0B1511;
+}
+
+body.dark-mode .cta-quote-btn:hover {
+    background: #DEB062;
+    border-color: #DEB062;
 }
 
 body.dark-mode .mobile-menu {
-    background: #1e1e1e;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    background: #12221B;
+    border-bottom-color: var(--border-strong);
 }
 
-body.dark-mode .mobile-menu a {
-    color: #f5f5f5;
-    border-bottom: 1px solid #333;
+/* Blueprint de Valores */
+body.dark-mode .blueprint-header {
+    background: #0E1B15;
 }
 
-body.dark-mode .mobile-menu a:hover {
-    background: #2d2d2d;
+body.dark-mode .value-card:hover {
+    background-color: rgba(216, 166, 82, 0.06);
 }
 
-/* Ajustes del preloader en modo oscuro */
-body.dark-mode #preloader {
-    background: #121212;
-}
-
-/* Títulos y subtítulos de sección */
-body.dark-mode .section-title {
-    color: var(--primary-gold);
-}
-
-body.dark-mode .section-subtitle {
-    color: #b5b5b5;
-}
-
-body.dark-mode .text-gray-700 {
-    color: #d4d4d4;
-}
-
-body.dark-mode .text-gray-600 {
-    color: #b0b0b0;
-}
-
-/* Hero Section */
-body.dark-mode .hero-section {
-    background: linear-gradient(135deg, rgba(27, 94, 32, 0.92), rgba(30, 80, 140, 0.88)),
-                url('../images/water-pattern.svg');
-}
-
-body.dark-mode .company-name,
-body.dark-mode .company-subtitle {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-body.dark-mode .hero-tagline {
-    color: rgba(255, 255, 255, 0.92);
-}
-
-/* Sección Nosotros y Valores */
-body.dark-mode .about-section {
-    background-color: #181818;
-}
-
-body.dark-mode .about-section .bg-white {
-    background-color: #242424;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-}
-
-body.dark-mode .value-card {
-    background-color: transparent;
-}
-
-/* Sección Servicios - Departamentos Estratégicos */
-body.dark-mode .services-section {
-    background: linear-gradient(180deg, #121212 0%, #181818 100%);
-}
-
+/* Departamentos Estratégicos */
 body.dark-mode .department-card {
-    background: #222222;
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    background: var(--bg-surface);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .department-card::before {
+    background: #4CAF50;
+}
+
+body.dark-mode .department-card--featured::before {
+    background: #64B5F6;
+}
+
+body.dark-mode .department-card:last-child::before {
+    background: #D8A652;
 }
 
 body.dark-mode .department-card:hover {
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
-}
-
-body.dark-mode .department-card--featured {
     border-color: var(--primary-gold);
-    background: #262626;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
 }
 
-body.dark-mode .department-badge {
-    background: #333333;
-    color: #d4d4d4;
+body.dark-mode .department-cta {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--ink-forest);
+    border-color: var(--border-strong);
 }
 
-body.dark-mode .department-title {
-    color: #f5f5f5;
+body.dark-mode .department-cta:hover {
+    background: #C99746;
+    color: #0B1511;
+    border-color: #C99746;
 }
 
-body.dark-mode .department-subtitle {
-    color: var(--secondary-blue);
-}
-
-body.dark-mode .department-description {
-    color: #b8b8b8;
-}
-
-body.dark-mode .department-services li {
-    border-bottom-color: #333333;
-}
-
-body.dark-mode .department-services li span {
-    color: #dcdcdc;
-}
-
-body.dark-mode .department-icon--environmental {
-    background: rgba(46, 125, 50, 0.2);
-}
-
-body.dark-mode .department-icon--environmental i {
-    color: #66bb6a;
-}
-
-body.dark-mode .department-icon--tech {
-    background: rgba(74, 144, 226, 0.2);
-}
-
-body.dark-mode .department-icon--tech i {
-    color: #64b5f6;
-}
-
-body.dark-mode .department-icon--academy {
-    background: rgba(218, 165, 32, 0.2);
-}
-
-body.dark-mode .department-icon--academy i {
-    color: var(--primary-gold);
-}
-
-/* Sección Equipo */
-body.dark-mode .team-section {
-    background-color: #181818;
-}
-
+/* Equipo Consultor */
 body.dark-mode .team-card {
-    background: #242424;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    background: var(--bg-surface);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
-body.dark-mode .team-card h3 {
-    color: #f5f5f5;
+body.dark-mode .team-avatar {
+    background: radial-gradient(circle at 50% 40%, #263E33 0%, #172921 100%);
 }
 
-body.dark-mode .team-card:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
+body.dark-mode .social-links a {
+    background: rgba(255, 255, 255, 0.04);
 }
 
-/* Sección Contacto y Tarjeta de WhatsApp */
-body.dark-mode .contact-section {
-    background: linear-gradient(135deg, #1a472a, #0d3320);
+body.dark-mode .social-links a:hover {
+    background: #C99746;
+    color: #0B1511;
+    border-color: #C99746;
 }
 
-body.dark-mode .contact-section .section-title,
-body.dark-mode .contact-section .section-subtitle {
-    color: #f5f5f5;
-}
-
-body.dark-mode .contact-icon {
-    background: rgba(255, 255, 255, 0.12);
-}
-
+/* Contacto y Tarjeta WhatsApp */
 body.dark-mode .whatsapp-contact-card {
-    background: #242424;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
-}
-
-body.dark-mode .form-label {
-    color: var(--primary-gold);
+    background: #14261E;
+    border-color: var(--border-strong);
 }
 
 body.dark-mode .form-input,
 body.dark-mode select.form-input {
-    background-color: #303030;
-    border-color: #444444;
-    color: #f5f5f5;
+    background-color: #0E1B15;
+    border-color: var(--border-strong);
+    color: var(--ink-forest);
 }
 
 body.dark-mode select.form-input option,
 body.dark-mode select.form-input optgroup {
-    background-color: #303030;
-    color: #f5f5f5;
+    background-color: #0E1B15;
+    color: var(--ink-forest);
 }
 
 body.dark-mode .whatsapp-btn {
-    background: linear-gradient(135deg, #128C7E, #075E54);
+    background: #C99746;
+    border-color: #C99746;
+    color: #0B1511;
 }
 
-/* Mapa y Footer */
-body.dark-mode iframe {
-    filter: grayscale(20%) invert(10%);
+body.dark-mode .whatsapp-btn:hover {
+    background: #DEB062;
+    border-color: #DEB062;
 }
 
-body.dark-mode .footer {
-    background: linear-gradient(135deg, #0a0a0a, #161616);
+/* Mapa */
+body.dark-mode .map-container iframe {
+    filter: grayscale(40%) invert(88%) hue-rotate(145deg) contrast(0.95);
 }
 
-/* Modal de Cotización en Modo Oscuro */
+/* Modal de Cotización */
 body.dark-mode .quote-modal__container {
-    background: #222222;
-    color: #f5f5f5;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.65);
-}
-
-body.dark-mode .quote-modal__close {
-    background: #333333;
-    color: #e0e0e0;
-}
-
-body.dark-mode .quote-modal__close:hover {
-    background: #ff4757;
-    color: #ffffff;
-}
-
-body.dark-mode .quote-modal__icon {
-    background: rgba(46, 125, 50, 0.25);
-}
-
-body.dark-mode .quote-modal__icon i {
-    color: #66bb6a;
-}
-
-body.dark-mode .quote-modal__title {
-    color: #f5f5f5;
-}
-
-body.dark-mode .quote-modal__subtitle,
-body.dark-mode .quote-modal__success-text {
-    color: #b5b5b5;
-}
-
-body.dark-mode .quote-form__label {
-    color: #e5e5e5;
+    background: #14261E;
+    border-color: var(--border-strong);
 }
 
 body.dark-mode .quote-form__input {
-    background: #2f2f2f;
-    color: #f5f5f5;
-    border-color: #404040;
-}
-
-body.dark-mode .quote-form__input:hover {
-    background: #353535;
+    background: #0E1B15;
+    color: var(--ink-forest);
+    border-color: var(--border-strong);
 }
 
 body.dark-mode .quote-form__input:focus {
-    background: #2a2a2a;
-    border-color: #66bb6a;
-    box-shadow: 0 0 0 4px rgba(102, 187, 106, 0.15);
+    background: #0B1511;
+    border-color: var(--primary-gold);
 }
 
 body.dark-mode .quote-form__input option,
 body.dark-mode .quote-form__input optgroup {
-    background: #2f2f2f;
-    color: #f5f5f5;
+    background: #0E1B15;
+    color: var(--ink-forest);
 }
 
 body.dark-mode .quote-form__group.has-error .quote-form__input {
     border-color: #ff6b81;
-    background: rgba(255, 71, 87, 0.1);
+    background: rgba(255, 71, 87, 0.12);
 }
 
-body.dark-mode .quote-form__privacy {
-    color: #a0a0a0;
+body.dark-mode .quote-form__submit {
+    background: #C99746;
+    color: #0B1511;
+    border-color: #C99746;
 }
 
-/* Botones flotantes en modo oscuro */
-body.dark-mode .back-to-top {
-    background: var(--primary-gold);
-}
-
+/* Botones Flotantes */
 body.dark-mode .dark-mode-toggle {
-    background: var(--accent-green);
-    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+    background: #152820;
+    color: #E2B86B;
+    border-color: var(--border-strong);
 }
 
-body.dark-mode .dark-mode-toggle:hover {
-    background: #1B5E20;
-    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+body.dark-mode .back-to-top {
+    background: #C99746;
+    color: #0B1511;
 }
