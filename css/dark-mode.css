@@ -13,15 +13,25 @@ body.dark-mode .navbar {
 
 body.dark-mode .navbar.scrolled {
     background: rgba(18, 18, 18, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-mode .nav-link {
+body.dark-mode .navbar .text-gray-800 {
+    color: #f5f5f5;
+}
+
+body.dark-mode .navbar .text-gray-600 {
+    color: #b0b0b0;
+}
+
+body.dark-mode .nav-link,
+body.dark-mode .mobile-menu-btn {
     color: #f5f5f5;
 }
 
 body.dark-mode .mobile-menu {
     background: #1e1e1e;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 body.dark-mode .mobile-menu a {
@@ -30,7 +40,7 @@ body.dark-mode .mobile-menu a {
 }
 
 body.dark-mode .mobile-menu a:hover {
-    background: #333;
+    background: #2d2d2d;
 }
 
 /* Ajustes del preloader en modo oscuro */
@@ -38,179 +48,140 @@ body.dark-mode #preloader {
     background: #121212;
 }
 
-/* Ajustes de secciones en modo oscuro */
-body.dark-mode .about-section {
-    background-color: #1e1e1e;
-}
-
+/* Títulos y subtítulos de sección */
 body.dark-mode .section-title {
     color: var(--primary-gold);
 }
 
 body.dark-mode .section-subtitle {
-    color: #aaa;
+    color: #b5b5b5;
 }
 
 body.dark-mode .text-gray-700 {
-    color: #ccc;
+    color: #d4d4d4;
 }
 
 body.dark-mode .text-gray-600 {
-    color: #aaa;
+    color: #b0b0b0;
 }
 
-/* Secciones específicas en modo oscuro */
-body.dark-mode .team-section {
-    background-color: #1e1e1e !important;
-}
-
-body.dark-mode section {
-    background-color: #121212;
-}
-
-body.dark-mode .bg-white {
-    background-color: #1e1e1e !important;
-}
-
+/* Hero Section */
 body.dark-mode .hero-section {
-    background: linear-gradient(135deg, rgba(46, 125, 50, 0.9), rgba(74, 144, 226, 0.8)), 
-                url('../images/water-pattern.svg') !important;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.92), rgba(30, 80, 140, 0.88)),
+                url('../images/water-pattern.svg');
 }
 
-/* Fondos específicos para todas las secciones */
-body.dark-mode #nosotros {
-    background-color: #1e1e1e !important;
+body.dark-mode .company-name,
+body.dark-mode .company-subtitle {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-body.dark-mode #servicios {
-    background-color: #121212 !important;
+body.dark-mode .hero-tagline {
+    color: rgba(255, 255, 255, 0.92);
 }
 
-body.dark-mode #equipo {
-    background-color: #1e1e1e !important;
+/* Sección Nosotros y Valores */
+body.dark-mode .about-section {
+    background-color: #181818;
 }
 
-/* Elementos con fondos blancos específicos */
-body.dark-mode .bg-gray-50,
-body.dark-mode .bg-gray-100 {
-    background-color: #2d2d2d !important;
+body.dark-mode .about-section .bg-white {
+    background-color: #242424;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
-body.dark-mode .rounded-2xl {
-    background-color: #2d2d2d !important;
-}
-
-body.dark-mode .shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Footer en modo oscuro */
-body.dark-mode .footer {
-    background: linear-gradient(135deg, #0a0a0a, #1a1a1a) !important;
-}
-
-/* Elementos específicos del equipo y valores */
 body.dark-mode .value-card {
-    background-color: #2d2d2d !important;
-}
-
-/* Mapas y otros elementos */
-body.dark-mode iframe {
-    filter: grayscale(20%) invert(10%);
-}
-
-/* Asegurar que todas las secciones tengan fondo oscuro */
-body.dark-mode section:not(.hero-section):not(.contact-section) {
-    background-color: #1e1e1e !important;
-}
-
-body.dark-mode section:nth-child(even):not(.hero-section):not(.contact-section) {
-    background-color: #121212 !important;
-}
-
-/* Clases de Tailwind CSS específicas */
-body.dark-mode .max-w-7xl {
-    color: #f5f5f5;
-}
-
-body.dark-mode .p-8 {
-    background-color: #2d2d2d !important;
-}
-
-body.dark-mode .space-y-6 > div,
-body.dark-mode .space-y-8 > div {
-    background-color: transparent !important;
-}
-
-/* Elementos con fondos blancos heredados */
-body.dark-mode * {
-    border-color: #404040;
-}
-
-body.dark-mode .grid > div {
-    background-color: inherit;
-}
-
-/* Asegurar que los contenedores principales sean oscuros */
-body.dark-mode main,
-body.dark-mode article,
-body.dark-mode aside {
-    background-color: #121212;
-}
-
-/* Regla general para evitar fondos blancos */
-body.dark-mode div:not(.hero-content):not(.cta-buttons):not(.scroll-indicator):not(.contact-icon):not(.value-icon):not(.service-icon):not(.team-avatar):not(.social-links):not(.contact-info-item):not(.form-group) {
-    background-color: inherit;
-}
-
-/* Forzar fondos oscuros en elementos problemáticos */
-body.dark-mode [style*="background: white"],
-body.dark-mode [style*="background-color: white"],
-body.dark-mode [class*="bg-white"] {
-    background-color: #2d2d2d !important;
-}
-
-/* Contenedores de sección específicos */
-body.dark-mode .container,
-body.dark-mode .mx-auto {
     background-color: transparent;
 }
 
-/* Ajustes de tarjetas en modo oscuro */
-body.dark-mode .service-card,
-body.dark-mode .team-card,
-body.dark-mode .whatsapp-contact-card {
-    background: #2d2d2d;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+/* Sección Servicios - Departamentos Estratégicos */
+body.dark-mode .services-section {
+    background: linear-gradient(180deg, #121212 0%, #181818 100%);
 }
 
-body.dark-mode .service-card:hover,
-body.dark-mode .team-card:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+body.dark-mode .department-card {
+    background: #222222;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Ajustes de formulario en modo oscuro */
-body.dark-mode .form-label {
+body.dark-mode .department-card:hover {
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+body.dark-mode .department-card--featured {
+    border-color: var(--primary-gold);
+    background: #262626;
+}
+
+body.dark-mode .department-badge {
+    background: #333333;
+    color: #d4d4d4;
+}
+
+body.dark-mode .department-title {
+    color: #f5f5f5;
+}
+
+body.dark-mode .department-subtitle {
+    color: var(--secondary-blue);
+}
+
+body.dark-mode .department-description {
+    color: #b8b8b8;
+}
+
+body.dark-mode .department-services li {
+    border-bottom-color: #333333;
+}
+
+body.dark-mode .department-services li span {
+    color: #dcdcdc;
+}
+
+body.dark-mode .department-icon--environmental {
+    background: rgba(46, 125, 50, 0.2);
+}
+
+body.dark-mode .department-icon--environmental i {
+    color: #66bb6a;
+}
+
+body.dark-mode .department-icon--tech {
+    background: rgba(74, 144, 226, 0.2);
+}
+
+body.dark-mode .department-icon--tech i {
+    color: #64b5f6;
+}
+
+body.dark-mode .department-icon--academy {
+    background: rgba(218, 165, 32, 0.2);
+}
+
+body.dark-mode .department-icon--academy i {
     color: var(--primary-gold);
 }
 
-body.dark-mode .form-input {
-    background-color: #333;
-    border-color: #444;
+/* Sección Equipo */
+body.dark-mode .team-section {
+    background-color: #181818;
+}
+
+body.dark-mode .team-card {
+    background: #242424;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .team-card h3 {
     color: #f5f5f5;
 }
 
-body.dark-mode select.form-input {
-    background-color: #333;
-    color: #f5f5f5;
+body.dark-mode .team-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
 }
 
-body.dark-mode select.form-input option {
-    background-color: #333;
-    color: #f5f5f5;
-}
-
-/* Ajustes de contacto en modo oscuro */
+/* Sección Contacto y Tarjeta de WhatsApp */
 body.dark-mode .contact-section {
     background: linear-gradient(135deg, #1a472a, #0d3320);
 }
@@ -221,46 +192,118 @@ body.dark-mode .contact-section .section-subtitle {
 }
 
 body.dark-mode .contact-icon {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-body.dark-mode .contact-text h4 {
+body.dark-mode .whatsapp-contact-card {
+    background: #242424;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+}
+
+body.dark-mode .form-label {
+    color: var(--primary-gold);
+}
+
+body.dark-mode .form-input,
+body.dark-mode select.form-input {
+    background-color: #303030;
+    border-color: #444444;
     color: #f5f5f5;
 }
 
-body.dark-mode .contact-text p {
-    color: rgba(255, 255, 255, 0.8);
+body.dark-mode select.form-input option,
+body.dark-mode select.form-input optgroup {
+    background-color: #303030;
+    color: #f5f5f5;
 }
 
-/* Ajustes de botón de WhatsApp en modo oscuro */
 body.dark-mode .whatsapp-btn {
     background: linear-gradient(135deg, #128C7E, #075E54);
 }
 
-/* Ajustes para el botón de volver arriba en modo oscuro */
+/* Mapa y Footer */
+body.dark-mode iframe {
+    filter: grayscale(20%) invert(10%);
+}
+
+body.dark-mode .footer {
+    background: linear-gradient(135deg, #0a0a0a, #161616);
+}
+
+/* Modal de Cotización en Modo Oscuro */
+body.dark-mode .quote-modal__container {
+    background: #222222;
+    color: #f5f5f5;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.65);
+}
+
+body.dark-mode .quote-modal__close {
+    background: #333333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .quote-modal__close:hover {
+    background: #ff4757;
+    color: #ffffff;
+}
+
+body.dark-mode .quote-modal__icon {
+    background: rgba(46, 125, 50, 0.25);
+}
+
+body.dark-mode .quote-modal__icon i {
+    color: #66bb6a;
+}
+
+body.dark-mode .quote-modal__title {
+    color: #f5f5f5;
+}
+
+body.dark-mode .quote-modal__subtitle,
+body.dark-mode .quote-modal__success-text {
+    color: #b5b5b5;
+}
+
+body.dark-mode .quote-form__label {
+    color: #e5e5e5;
+}
+
+body.dark-mode .quote-form__input {
+    background: #2f2f2f;
+    color: #f5f5f5;
+    border-color: #404040;
+}
+
+body.dark-mode .quote-form__input:hover {
+    background: #353535;
+}
+
+body.dark-mode .quote-form__input:focus {
+    background: #2a2a2a;
+    border-color: #66bb6a;
+    box-shadow: 0 0 0 4px rgba(102, 187, 106, 0.15);
+}
+
+body.dark-mode .quote-form__input option,
+body.dark-mode .quote-form__input optgroup {
+    background: #2f2f2f;
+    color: #f5f5f5;
+}
+
+body.dark-mode .quote-form__group.has-error .quote-form__input {
+    border-color: #ff6b81;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+body.dark-mode .quote-form__privacy {
+    color: #a0a0a0;
+}
+
+/* Botones flotantes en modo oscuro */
 body.dark-mode .back-to-top {
     background: var(--primary-gold);
 }
 
-/* Ajustes adicionales para el modo oscuro */
-body.dark-mode .company-name,
-body.dark-mode .company-subtitle {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-body.dark-mode .hero-tagline {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-body.dark-mode .navbar .text-gray-800 {
-    color: #f5f5f5 !important;
-}
-
-body.dark-mode .navbar .text-gray-600 {
-    color: #aaa !important;
-}
-
-/* Ajustes del botón de modo oscuro en tema oscuro */
 body.dark-mode .dark-mode-toggle {
     background: var(--accent-green);
     box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);

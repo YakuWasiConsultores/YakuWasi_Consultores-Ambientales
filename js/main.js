@@ -35,6 +35,21 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Inicializar el enlace
         updateWhatsAppLink();
+
+        // Conectar botones de Departamentos y enlaces de servicios con el selector de WhatsApp
+        document.querySelectorAll('[data-department-service]').forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                const targetService = this.getAttribute('data-department-service');
+                if (targetService && servicioSelect) {
+                    servicioSelect.value = targetService;
+                    updateWhatsAppLink();
+                    // Resaltar brevemente el selector al llegar a la sección de contacto
+                    setTimeout(() => {
+                        servicioSelect.focus({ preventScroll: true });
+                    }, 600);
+                }
+            });
+        });
     }
     
     // ===== FUNCIONALIDAD TEMA OSCURO =====
@@ -280,16 +295,20 @@ document.addEventListener('DOMContentLoaded', function() {
         animate();
     }
     
-    // Active Navigation Link
+    // Active Navigation Link & Navbar Scrolled State
+    const navbar = document.querySelector('.navbar');
     function setActiveNavLink() {
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
+        
+        if (navbar) {
+            navbar.classList.toggle('scrolled', window.pageYOffset > 50);
+        }
         
         let current = '';
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
             
             if (window.pageYOffset >= (sectionTop - 200)) {
                 current = section.getAttribute('id');
@@ -307,34 +326,37 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', setActiveNavLink);
     window.addEventListener('load', setActiveNavLink);
     
-    // Custom Cursor
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-    
-    document.addEventListener('mousemove', function(e) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-    
-    document.addEventListener('mousedown', function() {
-        cursor.classList.add('cursor-active');
-    });
-    
-    document.addEventListener('mouseup', function() {
-        cursor.classList.remove('cursor-active');
-    });
-    
-    // Add hover effect to interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .service-card, .team-card');
-    
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            cursor.classList.add('cursor-hover');
+    // Custom Cursor (solo en dispositivos con puntero fino / escritorio)
+    const hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+    if (hasFinePointer) {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+        
+        document.addEventListener('mousemove', function(e) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
         });
         
-        element.addEventListener('mouseleave', function() {
-            cursor.classList.remove('cursor-hover');
+        document.addEventListener('mousedown', function() {
+            cursor.classList.add('cursor-active');
         });
-    });
+        
+        document.addEventListener('mouseup', function() {
+            cursor.classList.remove('cursor-active');
+        });
+        
+        // Add hover effect to interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .department-card, .value-card, .team-card');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                cursor.classList.add('cursor-hover');
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                cursor.classList.remove('cursor-hover');
+            });
+        });
+    }
 });
